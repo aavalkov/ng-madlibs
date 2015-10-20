@@ -1,0 +1,49 @@
+<!DOCTYPE <!DOCTYPE html>
+<html ng-app="">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+	<title>NG Madlibs</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4" id="face-container">
+				<img src="img/face.png" alt="smiley face">
+			</div>
+			<div class="col-md-8" id="logo-container">
+				<img src="img/logo.png" alt="ngMad libs logo">
+				<h1>Automate This!</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 input-container">
+				<h2>Provide the following words:</h2>
+				<div class="col-md-4">
+					<input type="text" ng-model="maleName" placeholder="Male Name" class="form-control"/>
+					<input type="text" ng-model="jobTitle" placeholder="Job Title" class="form-control"/>
+					<input type="text" ng-model="tediousTask" placeholder="Tedious Task" class="form-control"/>
+				</div>
+				<div class="col-md-4">
+					<input type="text" ng-model="dirtyTask" placeholder="Dirty Task" class="form-control"/>
+					<input type="text" ng-model="celebrity" placeholder="Celebrity" class="form-control"/>
+					<input type="text" ng-model="uselessSkill" placeholder="Useless Skill" class="form-control"/>
+				</div>
+				<div class="col-md-4">
+					<input type="text" ng-model="obnoxiousCelebrity" placeholder="Obnoxious Celebrity" class="form-control"/>
+					<input type="text" ng-model="hugeNumber" placeholder="Huge Number" class="form-control"/>
+					<input type="text" ng-model="adjective" placeholder="Adjective" class="form-control"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 result-container">
+				<p>{{maleName}} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated  {{tediousTask}} and {{dirtyTask}}. So, {{maleName}} met with her life mentor {{celebrity}} who told her to learn how to {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so she studied programming instead. </p>
+				<p>What a great decision! With her new skills, {{maleName}} built a(n) {{adjective}} robot named {{obnoxiuousCelbertity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} faster.</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

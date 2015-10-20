@@ -1,0 +1,29 @@
+.container {
+	border:1px solid black;
+}
+
+div.row{
+	border-bottom:2px solid black;
+}
+
+#face-container{
+	border-right: 2px solid black;
+	text-align: center;
+}
+
+#face-container img, #logo-container img {
+	padding:20px 5px;
+}
+
+#logo-container{
+	text-align: center;
+}
+
+.input-container{
+	padding-top: 10px;
+	padding-bottom:20px;
+}
+
+.result-container{
+	padding: 20px;
+}
