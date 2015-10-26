@@ -18,31 +18,64 @@
 				<h1>Automate This!</h1>
 			</div>
 		</div>
-
-		<div class="row">
+		<div class="row" ng-show="showForm">
 			<div class="col-md-12 input-container">
 				<h2>Provide the following words:</h2>
-				<div class="col-md-4">
-					<input type="text" ng-model="maleName" placeholder="Male Name" class="form-control"/>
-					<input type="text" ng-model="jobTitle" placeholder="Job Title" class="form-control"/>
-					<input type="text" ng-model="tediousTask" placeholder="Tedious Task" class="form-control"/>
-				</div>
-				<div class="col-md-4">
-					<input type="text" ng-model="dirtyTask" placeholder="Dirty Task" class="form-control"/>
-					<input type="text" ng-model="celebrity" placeholder="Celebrity" class="form-control"/>
-					<input type="text" ng-model="uselessSkill" placeholder="Useless Skill" class="form-control"/>
-				</div>
-				<div class="col-md-4">
-					<input type="text" ng-model="obnoxiuousCelebrity" placeholder="Obnoxious Celebrity" class="form-control"/>
-					<input type="text" ng-model="hugeNumber" placeholder="Huge Number" class="form-control"/>
-					<input type="text" ng-model="adjective" placeholder="Adjective" class="form-control"/>
-				</div>
+				<form name="madLibsForm" novalidate ng-submit="submit()">
+					<div class="col-md-4">
+						<input type="text" name="maleName" ng-model="data.maleName" placeholder="Male Name" class="form-control" required/>
+						<input type="text" name="jobTitle" ng-model="data.jobTitle" placeholder="Job Title" class="form-control" required/>
+						<input type="text" name="tediousTask" ng-model="data.tediousTask" placeholder="Tedious Task" class="form-control" required/>
+					</div>
+					<div class="col-md-4">
+						<input type="text" name="dirtyTask" ng-model="data.dirtyTask" placeholder="Dirty Task" class="form-control" required/>
+						<input type="text" name="celebrity" ng-model="data.celebrity" placeholder="Celebrity" class="form-control" required/>
+						<input type="text" name="uselessSkill" ng-model="data.uselessSkill" placeholder="Useless Skill" class="form-control" required/>
+					</div>
+					<div class="col-md-4">
+						<input type="text" name="obnoxiuousCelebrity" ng-model="data.obnoxiuousCelebrity" placeholder="Obnoxious Celebrity" class="form-control" required/>
+						<input type="text" name="hugeNumber" ng-model="data.hugeNumber" ng-pattern="/^[0-9]*$/" placeholder="Huge Number" class="form-control" required/>
+						<input type="text" name="adjective" ng-model="data.adjective" placeholder="Adjective" class="form-control" required/>
+					</div>
+					<button type="submit" class="btn btn-default">Generate My Mad Lib</button>
+				</form>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.maleName.$error.required">
+   					A name is required!
+				</span>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.jobTitle.$error.required">
+   					A job title is required!
+				</span>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.tediousTask.$error.required">
+   					A tedious task is required!
+				</span>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.dirtyTask.$error.required">
+   					A dirty task is required!
+				</span>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.celebrity.$error.required">
+   					A celebrity is required!
+				</span>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.uselessSkill.$error.required">
+   					A useless skill is required!
+				</span>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.obnoxiuousCelebrity.$error.required">
+   					A obnoxiuous celebrity is required!
+				</span>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.hugeNumber.$error.required">
+   					A huge number is required!
+				</span>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.hugeNumber.$error.pattern">
+   					A huge number is a number only input field!
+				</span>
+				<span class="error" ng-if="madLibsForm.$submitted && madLibsForm.adjective.$error.required">
+   					A adjective is required!
+				</span>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" ng-show="!showForm">
 			<div class="col-md-12 result-container">
-				<p>{{maleName}} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated  {{tediousTask}} and {{dirtyTask}}. So, {{maleName}} met with her life mentor {{celebrity}} who told her to learn how to {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so she studied programming instead. </p>
-				<p>What a great decision! With her new skills, {{maleName}} built a(n) {{adjective}} robot named {{obnoxiuousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} faster.</p>
+				<p>{{data.maleName}} was a {{data.jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated  {{data.tediousTask}} and {{data.dirtyTask}}. So, {{data.maleName}} met with her life mentor {{data.celebrity}} who told her to learn how to {{data.uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{data.uselessSkill}} so she studied programming instead. </p>
+				<p>What a great decision! With her new skills, {{data.maleName}} built a(n) {{data.adjective}} robot named {{data.obnoxiuousCelebrity}} that not only loved {{data.dirtyTask}} but did it {{data.hugeNumber}} faster.</p>
+				<button class="btn btn-default" ng-click="startOver()">Start Over</button>
 			</div>
 		</div>
 	</div>
