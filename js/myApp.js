@@ -1,15 +1,5 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngAnimate'])
 	.controller('MyCtrl', function($scope){
-		$scope.maleName = "";
-		$scope.jobTitle = "";
-		$scope.tediousTask = "";
-		$scope.dirtyTask = "";
-		$scope.celebrity = "";
-		$scope.uselessSkill = "";
-		$scope.obnoxiuousCelebrity = "";
-		$scope.hugeNumber = "";
-		$scope.adjective = "";
-		$scope.madLibsForm = "";
 		$scope.showForm = true;
 		$scope.submit = function(){
 			if ($scope.madLibsForm.$valid){
@@ -20,16 +10,8 @@ angular.module('myApp', [])
 			}
 		};
 		$scope.startOver = function(){
-			$scope.data.maleName = "";
-			$scope.data.jobTitle = "";
-			$scope.data.tediousTask = "";
-			$scope.data.dirtyTask = "";
-			$scope.data.celebrity = "";
-			$scope.data.uselessSkill = "";
-			$scope.data.obnoxiuousCelebrity = "";
-			$scope.data.hugeNumber = "";
-			$scope.data.adjective = "";
-			$scope.data.madLibsForm = "";
+			$scope.showForm = true;
+			$scope.data = [];
 			$scope.madLibsForm.$setPristine();
 			$scope.showForm = true;
 		}

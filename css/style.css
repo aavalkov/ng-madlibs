@@ -24,9 +24,6 @@ div.row{
 	padding-bottom:20px;
 }
 
-.result-container{
-	padding: 20px;
-}
 .error{
 	color:red;
 	font-size: 10px;
@@ -37,4 +34,36 @@ div.row{
 button {
 	float: right;
 	margin: 50px 20px 20px 0px;
+}
+
+.result-container{
+	padding: 20px;
+	-webkit-transition:0.5s linear all;
+	transition:0.5s linear all;
+	opacity: 1;
+}
+
+.formContainer {
+	-webkit-transition:0.5s linear all;
+	transition:0.5s linear all;
+	opacity: 1;
+}
+
+.formContainer.ng-hide {
+ 	opacity: 0;
+	margin-left: -300px;
+	border-bottom: none;
+}
+
+.result-container.ng-hide{
+	opacity: 0;
+	margin-left: 300px;
+}
+
+.formContainer.ng-hide-add, 
+.formContainer.ng-hide-remove,
+.result-container.ng-hide-add,
+.result-container.ng-hide-remove {
+	display: block !important;
+	border-bottom: none;
 }
